@@ -72,7 +72,7 @@ async function verify(expectedHash: string) {
 const args = process.argv.slice(2);
 
 if (args.length < 1) {
-    console.error('Error: Missing arguments. Usage: yarn verify <expectedHash> [FILE]');
+    console.error('Error: Missing arguments. Usage: yarn verify <expectedHash>');
     process.exit(1);
 }
 
