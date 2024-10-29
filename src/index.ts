@@ -19,11 +19,30 @@ let ethTxClient = new EthereumTx({
     networkConfig: starknetSepolia,
 });
 
+// Required because Error in typescript doesn't have a code property by default
+function isNodeJsError(err: unknown): err is NodeJS.ErrnoException {
+    return err instanceof Error && 'code' in err;
+}
+
 // Helper function to load data from data.json
 function loadJson() {
     const filePath = path.resolve(__dirname, '../data.json');
-    const rawData = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(rawData);
+    
+    try {
+        const rawData = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(rawData);
+    } catch (err) {
+        if (isNodeJsError(err)) {
+        if (err.code === 'ENOENT') {
+            console.error(`Error: File not found at ${filePath}. Please ensure data.json exists.`);
+        } else {
+            console.error(`Error reading file: ${err.message}`);
+        }
+    } else {
+        console.error("An unexpected error occurred.");
+    }
+        process.exit(1);
+    }
 }
 
 async function verify(expectedHash: string) {
