@@ -9,9 +9,7 @@
     "verify": "ts-node src/index.ts"
   },
   "dependencies": {
-    "micro-starknet": "^0.2.3",
-    "starknet": "^6.11.0",
-    "yargs": "^17.7.2"
+    "@snapshot-labs/sx": "^0.1.4"
   },
   "devDependencies": {
     "@types/node": "^22.7.6",
