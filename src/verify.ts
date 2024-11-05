@@ -44,12 +44,11 @@ async function fetchData(url: string, hash: string): Promise<any> {
 }
 
 export async function verify(expectedHash: string, url: string) {
-    let json = await fetchData(url, expectedHash);
+    const json = await fetchData(url, expectedHash);
     if (json == null) {
         console.error(`\nNo data found for hash \`${expectedHash}\`\n.`);
         process.exit(1);
     }
-    json = {sender: '0x9988529d1c3EdF65dE72ad4d3EC4345e130038E7', ...json}
     let computedHash;
     const type = json.type.toLowerCase();
 
