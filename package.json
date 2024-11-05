@@ -10,10 +10,7 @@
     "lint": "eslint . --ext .js,.ts"
   },
   "eslintConfig": {
-    "extends": [
-      "@snapshot-labs",
-      "plugin:prettier/recommended"
-    ]
+    "extends": "@snapshot-labs"
   },
   "prettier": "@snapshot-labs/prettier-config",
   "dependencies": {
