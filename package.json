@@ -9,7 +9,7 @@
     "verify": "ts-node src/index.ts verify"
   },
   "dependencies": {
-    "@snapshot-labs/sx": "^0.1.4",
+    "@snapshot-labs/sx": "^0.1.5",
     "axios": "^1.7.7"
   },
   "devDependencies": {
