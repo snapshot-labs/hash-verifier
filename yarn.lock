@@ -431,10 +431,10 @@
   dependencies:
     browser-or-node "^2.0.0"
 
-"@snapshot-labs/sx@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@snapshot-labs/sx/-/sx-0.1.4.tgz#c097d37a995f18d81b2a966e0b25e8ec2c1e5408"
-  integrity sha512-Onw755QAJDZq2N+cvI2Cy13CWEL1nm30Bhv8Yw9ioVXGpJ0+i2N5hxKmw/pEA6OhZDT5LNNeW4Y1xOjWMc5JCw==
+"@snapshot-labs/sx@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@snapshot-labs/sx/-/sx-0.1.5.tgz#76158371dd1c77b6e04ef40878fc2746c9eed356"
+  integrity sha512-Zy38pAf8deq1GOGt//RUFU+4q1rxX/SfBy9QTe8x6/u0dpX+EFM3BDyW0OSytz5dTgUCVx3QW4wRObLS09XavA==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/abstract-signer" "^5.7.0"
