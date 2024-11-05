@@ -1,24 +1,29 @@
 # hash-verifier
 
-Verify the message hash you are signing!
+Want to verify the Snapshot data you're signing with your Gnosis Safe? Follow these 3 easy steps!
 
-## Getting the hash
-
-Query the `mana` transaction relayer with the method `getDataByMessageHash` and store it in the `data.json` file.
-As parameter, pass in the `hash` you wish to verify.
-
-example:
+1. Clone this repository:
 
 ```sh
-curl -X POST http://localhost:3001/stark_rpc/0x534e5f5345504f4c4941 \
--H "Content-Type: application/json" \
--d '{
-  "id": 1,
-  "method": "getDataByMessageHash",
-  "params": {
-    "hash": "0x0776f504b334b9c2e45993b3439f16ed5ce035343887d2d802251639793a8936"
-  }
-} > data.json'
+git clone https://github.com/snapshot-labs/hash-verifier.git
+cd hash-verifier
 ```
 
-Run `yarn verify <hash>`. The result will be printed on your screen!
+2. Install:
+
+```sh
+yarn
+```
+
+3. Copy the hash from your Gnosis Safe UI (both hex and decimal formats are supported!)
+
+4. Verify it!
+
+```sh
+yarn verify <hash>
+```
+
+### Example
+
+For testing purposes, we have a transaction that we have never broadcast, this way you can try it yourself.
+`yarn verify 1444898574163502210266027213349187100527371546664615897979409831152649883708`

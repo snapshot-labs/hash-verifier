@@ -6,13 +6,15 @@
   "author": "Snapshot Labs <contact@snapshot.org>",
   "license": "MIT",
   "scripts": {
-    "verify": "ts-node src/index.ts"
+    "verify": "ts-node src/index.ts verify"
   },
   "dependencies": {
-    "@snapshot-labs/sx": "^0.1.4"
+    "@snapshot-labs/sx": "^0.1.4",
+    "axios": "^1.7.7"
   },
   "devDependencies": {
     "@types/node": "^22.7.6",
+    "@types/yargs": "^17.0.33",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   }
