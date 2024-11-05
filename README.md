@@ -3,7 +3,9 @@
 ## Context
 
 The [Ethereum Transaction Authenticator](https://github.com/snapshot-labs/sx-starknet/blob/develop/starknet/src/authenticators/eth_tx.cairo) allows users to perform actions with their Ethereum account (Gnosis Safe...).
+
 Actions can be creating a new proposal (`propose`), updating a proposal (`updateProposal`) or voting on a proposal (`vote`).
+
 The flow for the user is quite simple: they `commit` their action to the Starknet Commit Contract. This contract then bridges the data to Starknet, and the commit is stored on Starknet. Once stored, our transaction relayer, [mana](https://github.com/snapshot-labs/sx-monorepo/tree/master/apps/mana), triggers the action on Starknet, without the user having to interact with Starknet at all.
 
 One issue however is that the piece of data that the user commits to is a `hash`, not the full data. This means that, in the UI, the user does not see what data he is signing, he only sees a hash of it. To avoid malicious users taking advantage of this, we've created this repository to allow users to easily check the data they're signing!
