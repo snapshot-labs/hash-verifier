@@ -10,7 +10,10 @@
     "lint": "eslint src/ --ext .js,.ts --fix"
   },
   "eslintConfig": {
-    "extends": "@snapshot-labs"
+    "extends": [
+      "@snapshot-labs",
+      "plugin:prettier/recommended"
+    ]
   },
   "prettier": "@snapshot-labs/prettier-config",
   "dependencies": {
@@ -25,7 +28,8 @@
     "@types/node": "^22.7.6",
     "@types/yargs": "^17.0.33",
     "eslint": "^8.28.0",
-    "prettier": "2.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
     "ts-node": "^10.8.1",
     "typescript": "^4.9.3"
   }
