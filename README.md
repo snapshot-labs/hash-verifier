@@ -17,7 +17,7 @@ yarn
 
 3. Copy the hash from your Gnosis Safe UI (both hex and decimal formats are supported!)
 
-<img width="697" alt="Screenshot 2024-11-05 at 13 26 27" src="https://github.com/user-attachments/assets/867fa9b6-47cb-4e10-b982-4a53e9533c0e">
+<img width="654" alt="Screenshot 2024-11-05 at 14 38 22" src="https://github.com/user-attachments/assets/c867fd97-65ba-4ec5-a07a-cc61aaed5b73">
 
 
 5. Verify it!
@@ -26,7 +26,7 @@ yarn
 yarn verify <hash>
 ```
 
-![Screenshot 2024-11-05 at 13 28 16](https://github.com/user-attachments/assets/e244a62f-df85-46f5-9a73-54ff777aeae5)
+<img width="1217" alt="Screenshot 2024-11-05 at 14 40 30" src="https://github.com/user-attachments/assets/32abc44e-c51f-443e-9e55-e7606f605099">
 
 
 ### Example
@@ -34,5 +34,5 @@ yarn verify <hash>
 For testing purposes, we have a transaction that we have never broadcast, this way you can try it yourself.
 
 ```sh
-yarn verify 1444898574163502210266027213349187100527371546664615897979409831152649883708
+yarn verify 0x62abf12fcadc73d129acf8f762a806654936daca722c2ec546dcdcb2ec9c91b
 ```
