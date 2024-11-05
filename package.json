@@ -6,16 +6,31 @@
   "author": "Snapshot Labs <contact@snapshot.org>",
   "license": "MIT",
   "scripts": {
-    "verify": "ts-node src/index.ts verify"
+    "verify": "ts-node src/index.ts verify",
+    "lint": "eslint src/ --ext .js,.ts --fix"
   },
+  "eslintConfig": {
+    "extends": [
+      "@snapshot-labs",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "prettier": "@snapshot-labs/prettier-config",
   "dependencies": {
     "@snapshot-labs/sx": "^0.1.5",
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "starknet": "^6.11.0",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@snapshot-labs/eslint-config": "^0.1.0-beta.7",
+    "@snapshot-labs/prettier-config": "^0.1.0-beta.7",
     "@types/node": "^22.7.6",
     "@types/yargs": "^17.0.33",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "eslint": "^8.28.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.9.3"
   }
 }
