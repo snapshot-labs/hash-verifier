@@ -1,0 +1,18 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint-build-test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+          cache: "yarn"
+      - run: yarn --frozen-lockfile
+      - run: yarn lint
+      - run: yarn verify 0x62abf12fcadc73d129acf8f762a806654936daca722c2ec546dcdcb2ec9c91b
