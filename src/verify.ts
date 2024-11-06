@@ -1,19 +1,17 @@
-import { clients, starknetSepolia } from '@snapshot-labs/sx';
+import { clients, starknetMainnet, starknetSepolia } from '@snapshot-labs/sx';
 import axios from 'axios';
 import { RpcProvider } from 'starknet';
 const { EthereumTx } = clients;
 
-// These values doesn't matter for this script, but it's required to instantiate the EthereumTx client
-const starkProvider = new RpcProvider({
-  nodeUrl: 'http://127.0.0.1:5050/rpc'
+const starkProviderMainnet = new RpcProvider({
+  nodeUrl: 'https://starknet-mainnet.infura.io/v3/e881110087914af69a1ca2c49aa56d14'
 });
-const ethUrl = 'http://127.0.0.1:8545';
+const ethUrlMainnet = 'https://mainnet.infura.io/v3/e881110087914af69a1ca2c49aa56d14';
 
-const ethTxClient = new EthereumTx({
-  starkProvider: starkProvider as any,
-  ethUrl,
-  networkConfig: starknetSepolia
+const starknetProviderSepolia = new RpcProvider({
+  nodeUrl: 'https://starknet-sepolia.infura.io/v3/e881110087914af69a1ca2c49aa56d14'
 });
+const ethUrlSepolia = 'https://sepolia.infura.io/v3/e881110087914af69a1ca2c49aa56d14';
 
 async function fetchData(url: string, hash: string): Promise<any> {
   try {
@@ -40,7 +38,17 @@ async function fetchData(url: string, hash: string): Promise<any> {
   }
 }
 
-export async function verify(expectedHash: string, url: string) {
+export async function verify(expectedHash: string, url: string, network: string) {
+  const networkConfig = network === 'mainnet' ? starknetMainnet : starknetSepolia;
+  const ethurl = network === 'mainnet' ? ethUrlMainnet : ethUrlSepolia;
+  const starkProvider = network === 'mainnet' ? starkProviderMainnet : starknetProviderSepolia;
+
+  const ethTxClient = new EthereumTx({
+    starkProvider: starkProvider,
+    ethUrl: ethurl,
+    networkConfig: networkConfig
+  });
+
   const json = await fetchData(url, expectedHash);
   if (json == null) {
     console.error(`\nNo data found for hash \`${expectedHash}\`\n.`);
