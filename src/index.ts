@@ -48,7 +48,7 @@ const commandHandler = (argv: Arguments) => {
     `Verifying hash: \`${hash}\` with network \`${argv.network}\` and mana URL \`${manaUrl}\``
   );
 
-  verify(hash as string, manaUrl);
+  verify(hash as string, manaUrl, argv.network as string);
 };
 
 // Converts decimal representation to hex representation, if necessary

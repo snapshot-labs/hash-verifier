@@ -31,7 +31,6 @@ yarn
 
 <img width="654" alt="Screenshot 2024-11-05 at 14 38 22" src="https://github.com/user-attachments/assets/c867fd97-65ba-4ec5-a07a-cc61aaed5b73">
 
-
 5. Verify it
 
 ```sh
@@ -40,18 +39,18 @@ yarn verify <hash>
 
 <img width="1217" alt="Screenshot 2024-11-05 at 14 40 30" src="https://github.com/user-attachments/assets/32abc44e-c51f-443e-9e55-e7606f605099">
 
-
 ## Example
 
 For testing purposes, we have a transaction that we have never broadcast, this way you can try it yourself.
 
 ```sh
-yarn verify 0x62abf12fcadc73d129acf8f762a806654936daca722c2ec546dcdcb2ec9c91b
+yarn verify 0x62abf12fcadc73d129acf8f762a806654936daca722c2ec546dcdcb2ec9c91b --network sepolia
 ```
 
 ## What's going on under the hood?
 
 What this simple script does is fairly simple:
+
 1. First we use the code in `./src/index.ts` to parse the command and transform the hash to its hexadecimal format.
 2. In `./src/verify.ts` we then query `https://mana.box` to get the information related to the hash that was given as input.
 3. Next we display the information on your screen.
