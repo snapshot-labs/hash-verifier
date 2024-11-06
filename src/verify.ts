@@ -60,16 +60,22 @@ export async function verify(expectedHash: string, url: string, network: string)
   console.log(`Type: \`${json.type}\``);
   console.log(`Sender: \`${json.sender}\``);
   console.dir(json.data, { depth: null });
-  if (type === 'vote') {
-    console.log('Authenticating vote...');
-    console.log('Sender: ', json.sender);
-    computedHash = await ethTxClient.getVoteHash(json.sender, json.data);
-  } else if (type === 'propose') {
-    computedHash = await ethTxClient.getProposeHash(json.sender, json.data);
-  } else if (type === 'updateproposal') {
-    computedHash = await ethTxClient.getUpdateProposalHash(json.sender, json.data);
-  } else {
-    console.error('Invalid type specified. Use "vote", "proposal", or "updateProposal".');
+  try {
+    if (type === 'vote') {
+      console.log('Authenticating vote...');
+      console.log('Sender: ', json.sender);
+      computedHash = await ethTxClient.getVoteHash(json.sender, json.data);
+    } else if (type === 'propose') {
+      computedHash = await ethTxClient.getProposeHash(json.sender, json.data);
+    } else if (type === 'updateproposal') {
+      computedHash = await ethTxClient.getUpdateProposalHash(json.sender, json.data);
+    } else {
+      console.error('Invalid type specified. Use "vote", "proposal", or "updateProposal".');
+      process.exit(1);
+    }
+  } catch (error) {
+    console.log(error);
+    console.error('\n❌ Error verifying hash. Are you sure you are using the correct network?\n');
     process.exit(1);
   }
 
