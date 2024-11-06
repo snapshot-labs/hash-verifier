@@ -62,8 +62,6 @@ export async function verify(expectedHash: string, url: string, network: string)
   console.dir(json.data, { depth: null });
   try {
     if (type === 'vote') {
-      console.log('Authenticating vote...');
-      console.log('Sender: ', json.sender);
       computedHash = await ethTxClient.getVoteHash(json.sender, json.data);
     } else if (type === 'propose') {
       computedHash = await ethTxClient.getProposeHash(json.sender, json.data);
