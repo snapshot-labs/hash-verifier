@@ -47,6 +47,12 @@ For testing purposes, we have a transaction that we have never broadcast, this w
 yarn verify 0x62abf12fcadc73d129acf8f762a806654936daca722c2ec546dcdcb2ec9c91b --network sepolia
 ```
 
+**Note:** When verifying a vote action, the `choice` parameter corresponds to:
+
+ - `0` for **Against**
+ - `1` for **For**
+ - `2` for **Abstain**
+
 ## What's going on under the hood?
 
 What this simple script does is fairly simple:
